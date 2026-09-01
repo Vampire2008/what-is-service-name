@@ -1,11 +1,18 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, test } from "vitest";
 
-import { mount } from '@vue/test-utils'
-import App from '../App.vue'
+import { mount } from "@vue/test-utils";
+import App from "@/App.vue";
+import { RouterView } from "vue-router";
+import router from "@/router";
 
-describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
-  })
-})
+describe("App", () => {
+	test("mounts renders properly", () => {
+		const wrapper = mount(App, {
+			global: {
+				plugins: [router],
+			},
+		});
+		const components = wrapper.findAllComponents(RouterView);
+		expect(components).toHaveLength(1);
+	});
+});
