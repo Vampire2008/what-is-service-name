@@ -22,8 +22,8 @@ jobs:
               id: repo
               shell: pwsh
               run: |
-                - $repoName = "${{ github.repository}}".Replace("${{ github.repository_owner }}/", "")
-                - echo "REPO_NAME=$repoName" >> $GITHUB_ENV
+                $repoName = "${{ github.repository}}".Replace("${{ github.repository_owner }}/", "")
+                echo "REPO_NAME=$repoName" >> $GITHUB_ENV
 
             - name: Build project
               run: pnpm run build -- --base=${{ steps.repo.outputs.REPO_NAME }}
