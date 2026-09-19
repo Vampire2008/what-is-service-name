@@ -26,7 +26,7 @@ jobs:
                 echo "REPO_NAME=$repoName" >> $Env:GITHUB_OUTPUT
 
             - name: Build project
-              run: pnpm run build -- --base=${{ steps.repo.outputs.REPO_NAME }}
+              run: pnpm run build -- --base=/${{ steps.repo.outputs.REPO_NAME }}
 
             - name: Deploy
               uses: actions/upload-pages-artifact@v5
