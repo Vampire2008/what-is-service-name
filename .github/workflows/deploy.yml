@@ -18,8 +18,15 @@ jobs:
               with:
                   runtime: node@latest
 
+            - name: Get repository name
+              id: repo
+              shell: pwsh
+              run: |
+                - $repoName = "${{ github.repository}}".Replace("${{ github.repository_owner }}/", "")
+                - echo "REPO_NAME=$repoName" >> $GITHUB_ENV
+
             - name: Build project
-              run: pnpm run build
+              run: pnpm run build -- --base=${{ steps.repo.outputs.REPO_NAME }}
 
             - name: Deploy
               uses: actions/upload-pages-artifact@v5
