@@ -3,15 +3,15 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th rowspan="2" class="middle">Service Name</th>
-					<th colspan="2">{{ services.leftCulture.displayName }}</th>
-					<th colspan="2">{{ services.rightCulture.displayName }}</th>
+					<th rowspan="2" class="middle">{{ t('service-name-title') }}</th>
+					<th colspan="2">{{ t(`cultures.${services.leftCulture.name}`) }}</th>
+					<th colspan="2">{{ t(`cultures.${services.rightCulture.name}`) }}</th>
 				</tr>
 				<tr>
-					<th>Display Name</th>
-					<th>Description</th>
-					<th>Display Name</th>
-					<th>Description</th>
+					<th>{{ t('display-name-title') }}</th>
+					<th>{{ t('description-title') }}</th>
+					<th>{{ t('display-name-title') }}</th>
+					<th>{{ t('description-title') }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,6 +29,9 @@
 
 <script setup lang="ts">
 import type CompareResults from "@/models/CompareResults";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const { services } = defineProps<{
 	services: CompareResults;

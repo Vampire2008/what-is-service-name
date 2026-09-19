@@ -1,8 +1,13 @@
 <template>
-	https://eslint.vuejs.org/rules/multi-word-component-names.html
 	<div class="container-fluid">
-		<h1>What is service name</h1>
-		<div>Description</div>
+		<div>
+			<p>
+				{{ t('description') }}
+			</p>
+			<p>
+				{{ t('description2') }}
+			</p>
+		</div>
 		<div class="row">
 			<div class="col-6">
 				<Suspense>
@@ -18,12 +23,12 @@
 		</div>
 		<div>
 			<div v-if="isSelectionComplete">
-				<h2>Results</h2>
+				<h2>{{ t('results') }}</h2>
 				<LoadingIndicator v-if="isLoading" />
 				<Compare v-else :services="compareResults!" />
 			</div>
 			<div v-else>
-				<h2>Please make selections to see the results.</h2>
+				<h2>{{ t('no-selection-hint') }}</h2>
 			</div>
 		</div>
 	</div>
@@ -38,6 +43,9 @@ import { useAsyncState } from "@vueuse/core";
 import CultureSelector from "./CultureSelector.vue";
 import type ISelectable from "@/models/ISelectable";
 import { createServiceLoader } from "@/ServiceProvider.ts";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const selectedLeftCulture = ref<ISelectable | null>(null);
 const selectedRightCulture = ref<ISelectable | null>(null);

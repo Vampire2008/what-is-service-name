@@ -1,18 +1,18 @@
 <template>
 	<div class="row">
 		<div class="col">
-			<select v-model="leftCulture" class="form-select form-select-lg">
-				<option selected :value="null">Select one</option>
+			<select v-model="leftCulture" class="form-select">
+				<option selected :value="null">{{ t('select-one') }}</option>
 				<option v-for="culture in cultures" :key="culture.name" :value="culture">
-					{{ culture.displayName }}
+					{{ t(`cultures.${culture.name}`) }}
 				</option>
 			</select>
 		</div>
 		<div class="col">
-			<select v-model="rightCulture" class="form-select form-select-lg">
-				<option selected :value="null">Select one</option>
+			<select v-model="rightCulture" class="form-select">
+				<option selected :value="null">{{ t('select-one') }}</option>
 				<option v-for="culture in cultures" :key="culture.name" :value="culture">
-					{{ culture.displayName }}
+					{{ t(`cultures.${culture.name}`) }}
 				</option>
 			</select>
 		</div>
@@ -24,6 +24,9 @@ import type ISelectable from "@/models/ISelectable";
 import { createCultureLoader } from "@/ServiceProvider";
 import { useRouteQuery } from "@vueuse/router";
 import { watch } from "vue";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const cultures = await createCultureLoader().loadCultures();
 

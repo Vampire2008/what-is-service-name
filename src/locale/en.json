@@ -1,0 +1,15 @@
+{
+  "title": "What is service name",
+  "description": "Often we encounter a situation where a guide mentions which service to check, but its name is in English, and your system is in your language. You start wondering what this service is called in your language. This service will help you determine its name in your language.",
+  "description2": "Just select 2 languages and you will see the service names in the selected languages. Use the browser search to search the table.",
+  "cultures": {
+    "en-US": "English (United States)",
+    "ru-RU": "Russian (Russia)"
+  },
+  "select-one": "Select one",
+  "service-name-title": "Service Name",
+  "display-name-title": "Display Name",
+  "description-title": "Description",
+  "results": "Results",
+  "no-selection-hint": "Please make selections to see the results."
+}
