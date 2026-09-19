@@ -2,7 +2,7 @@ import { Octokit } from "octokit";
 import config from "./config";
 import type IGitHubClient from "./IGitHubClient";
 
-export default class GithubClient implements IGitHubClient {
+export default class GitHubClient implements IGitHubClient {
 	#client: Octokit;
 
 	constructor() {

@@ -1,9 +1,9 @@
 import CultureLoader from "./CultureLoader";
-import GithubClient from "./GithubClient";
+import GitHubClient from "./GitHubClient";
 import ServiceLoader from "./ServiceLoader";
 
 function createGithubClient() {
-	return new GithubClient();
+	return new GitHubClient();
 }
 
 export function createServiceLoader() {
